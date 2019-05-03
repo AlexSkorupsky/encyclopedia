@@ -1,0 +1,46 @@
+<!DOCTYPE encyclopedia [
+<!ELEMENT encyclopedia (ename, countOfSections, section+, user+, tag+, connection+, change+, image+)>
+<ATTRLIST encyclopedia
+  encyclopediaID ID>
+  <!ELEMENT ename (#PCDATA)>
+  <!ELEMENT countOfSections (#PCDATA)>
+  <!ELEMENT section (sname, countOfArticles, article*)>
+  <!ATTRLIST section
+    sectionID ID
+    encyclopediaID IDREFS>
+    <!ELEMENT sname (#PCDATA)>
+    <!ELEMENT countOfArticles (#PCDATA)>
+      <!ELEMENT article (aname, content, lastChangeDate)>
+      <!ATTRLIST article
+        articleID ID
+        sectionID IDREFS>
+      <!ELEMENT aname (#PCDATA)>
+      <!ELEMENT content (#PCDATA)>
+      <!ELEMENT lastChangeDate (#PCDATA)>
+  <!ELEMENT user (uname)>
+  <!ATTRLIST user
+    userID ID>
+    <!ELEMENT uname (#PCDATA)>
+  <!ELEMENT tag (keyword)>
+  <!ATTRLIST tag
+    tagID ID>
+    <!ELEMENT keyword (#PCDATA)>
+  <!ELEMENT connection ()>
+  <!ATTRLIST connection
+    connectionID ID
+    articleID IDREFS
+    tagID IDREFS>
+  <!ELEMENT change (date, content)>
+  <!ATTRLIST change
+    changeID ID
+    articleID IDREFS
+    userID IDREFS>
+    <!ELEMENT date (#PCDATA)>
+    <!ELEMENT content (#PCDATA)>
+  <!ELEMENT image (iname, url)>
+  <!ATTRLIST image
+    imageID ID
+    articleID IDREFS>
+    <!ELEMENT iname (#PCDATA)>
+    <!ELEMENT url (#PCDATA)>
+]>

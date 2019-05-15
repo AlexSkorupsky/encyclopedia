@@ -39,12 +39,9 @@ xsi:noNamespaceSchemaLocation="encyclopedia.xsd">
   <tag tagID = "t3">
     <keyword>#tag3</keyword>
   </tag>
-  <connection connectionID = "c1" articleID = "a1, a2" tagID = "t1">
-  </connection>
-  <connection connectionID = "c2" articleID = "a1, a3" tagID = "t2">
-  </connection>
-  <connection connectionID = "c3" articleID = "a2, a2" tagID = "t3">
-  </connection>
+  <connection connectionID = "c1" articleID = "a1, a2" tagID = "t1"/>
+  <connection connectionID = "c2" articleID = "a1, a3" tagID = "t2"/>
+  <connection connectionID = "c3" articleID = "a2, a2" tagID = "t3"/>
   <change changeID = "c1" articleID = "a2" userID = "u1">
     <date>2018-10-05</date>
     <content>Content of Article2</content>

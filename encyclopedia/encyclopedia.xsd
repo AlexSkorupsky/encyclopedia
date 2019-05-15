@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+<!-- definition of attributes -->
+<xs:attribute name="encyclopediaID" type="xs:string"/>
+<xs:attribute name="sectionID" type="xs:string"/>
+<xs:attribute name="articleID" type="xs:string"/>
+<xs:attribute name="userID" type="xs:string"/>
+<xs:attribute name="tagID" type="xs:string"/>
+<xs:attribute name="connectionID" type="xs:string"/>
+<xs:attribute name="changeID" type="xs:string"/>
+<xs:attribute name="imageID" type="xs:string"/>
+
+
 <xs:element name="encyclopedia">
   <xs:complexType>
     <xs:sequence>
       <xs:element name="ename" type="xs:string"/>
       <xs:element name="countOfSections" type="xs:integer"/>
+
       <xs:element name="section" minOccurs="1" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
@@ -19,57 +31,82 @@
                   <xs:element name="content" type="xs:string"/>
                   <xs:element name="lastChangeDate" type="xs:date"/>
                 </xs:sequence>
+                <xs:attribute ref="articleID" use="required"/>
+                <xs:attribute ref="sectionID" use="required"/>
               </xs:complexType>
             </xs:element>
 
           </xs:sequence>
+          <xs:attribute ref="sectionID" use="required"/>
+          <xs:attribute ref="encyclopediaID" use="required"/>
         </xs:complexType>
       </xs:element>
 
       <xs:element name="user" minOccurs="1" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="uname" type="xs:string"/>
+            <xs:element name="uname">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="[A-Z]([a-zA-Z0-9])+"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
           </xs:sequence>
+          <xs:attribute ref="userID" use="required"/>
         </xs:complexType>
       </xs:element>
-
 
       <xs:element name="tag" minOccurs="1" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="keyword" type="xs:string"/>
+            <xs:element name="keyword">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="#tag1"/>
+                  <xs:enumeration value="#tag2"/>
+                  <xs:enumeration value="#tag3"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
           </xs:sequence>
+          <xs:attribute ref="tagID" use="required"/>
         </xs:complexType>
       </xs:element>
 
-      <xs:element name="connection" minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="connection" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+            <xs:attribute ref="connectionID" use="required"/>
+            <xs:attribute ref="articleID" use="required"/>
+            <xs:attribute ref="tagID" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      
+      <xs:element name="change" minOccurs="1" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="uid" type="xs:integer"/>
-            <xs:element name="tid" type="xs:integer"/>
+            <xs:element name="date" type="xs:string"/>
+            <xs:element name="content" type="xs:string"/>
           </xs:sequence>
+          <xs:attribute ref="changeID" use="required"/>
+          <xs:attribute ref="articleID" use="required"/>
+          <xs:attribute ref="userID" use="required"/>
         </xs:complexType>
       </xs:element>
 
       <xs:element name="image" minOccurs="1" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="keyword" type="xs:string"/>
+            <xs:element name="iname" type="xs:string"/>
+            <xs:element name="url" type="xs:string"/>
           </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-
-      <xs:element name="conchangeection" minOccurs="1" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="uid" type="xs:integer"/>
-            <xs:element name="tid" type="xs:integer"/>
-          </xs:sequence>
+          <xs:attribute ref="imageID" use="required"/>
+          <xs:attribute ref="articleID" use="required"/>
         </xs:complexType>
       </xs:element>
 
     </xs:sequence>
+    <xs:attribute ref="encyclopediaID" use="required"/>
   </xs:complexType>
 </xs:element>
 

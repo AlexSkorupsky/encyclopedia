@@ -1,4 +1,5 @@
 <?xml version = "1.0" encoding="UTF-8" standalone = "no" ?>
+
 <!-- <!DOCTYPE encyclopedia SYSTEM "encyclopedia.dtd"> -->
 <encyclopedia encyclopediaID = "wiki"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -22,6 +23,20 @@ xsi:noNamespaceSchemaLocation="encyclopedia.xsd">
       <aname>Article3</aname>
       <content>Content of Article3</content>
       <lastChangeDate>2018-10-06</lastChangeDate>
+    </article>
+  </section>
+  <section sectionID = "s2" encyclopediaID = "wiki">
+    <sname>Computer science</sname>
+    <countOfArticles>2</countOfArticles>
+    <article articleID = "csa1" sectionID = "s2">
+      <aname>CsArticle1</aname>
+      <content>Content of csArticle1</content>
+      <lastChangeDate>2018-10-09</lastChangeDate>
+    </article>
+    <article articleID = "csa2" sectionID = "s2">
+      <aname>Article2</aname>
+      <content>Content of csArticle2</content>
+      <lastChangeDate>2018-10-05</lastChangeDate>
     </article>
   </section>
   <user userID = "u1">

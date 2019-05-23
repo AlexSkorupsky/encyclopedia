@@ -65,7 +65,7 @@ xsi:noNamespaceSchemaLocation="encyclopedia.xsd">
     <date>2018-10-06</date>
     <content>Content of Article3</content>
   </change>
-  <change changeID = "c3" articleID = "a1" userID = "u1">
+  <change changeID = "c3" articleID = "a1" userID = "u2">
     <date>2018-10-08</date>
     <content>Content of Article1</content>
   </change>
